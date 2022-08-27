@@ -21,7 +21,7 @@ public class user {
 	private int id;
 	
 	@Column
-	@NotBlank
+	@NotBlank //these are good names so dont rename the column
 	private String username;
 	
 	@Column
@@ -42,7 +42,7 @@ public class user {
 
 
 	public user(int id, @NotBlank String username, @NotBlank String password,
-			List<com.skillstorm.demo.models.goal> goal) {
+			List<goal> goal) {
 		super();
 		this.id = id;
 		this.username = username;

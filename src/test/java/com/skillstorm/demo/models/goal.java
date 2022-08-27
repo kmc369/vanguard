@@ -63,7 +63,7 @@ public class goal {
 
 	public goal(int id, @NotBlank String name, @NotBlank String description, @NotBlank String image,
 			@NotBlank Date date, @NotBlank double amount, @NotBlank double saved,
-			com.skillstorm.demo.models.user user) {
+			user user) {
 		super();
 		this.id = id;
 		this.name = name;
