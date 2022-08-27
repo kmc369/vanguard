@@ -29,7 +29,7 @@ public class user {
 	private String password;
 	
 	
-	@OneToMany
+	@OneToMany (mappedBy="user")
 	private List<goal> goal;
 	
 	
