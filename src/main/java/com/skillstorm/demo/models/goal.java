@@ -1,6 +1,7 @@
 package com.skillstorm.demo.models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,13 +11,20 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
 //annotations for hibernate
 @Entity
 @Table(name = "goals")
+
 public class goal {
 
 	@Id
@@ -38,35 +46,34 @@ public class goal {
 	@Column(name="goal_image")
 	private String image;
 
-	@NotBlank
+	@Future
 	@Column(name="goal_date")
-	private Date date;
+	private LocalDate date;
 	
 
-	@NotBlank
+	@NotNull
 	@Column(name="goal_amount")
 	private double amount;
 	
 
-	@NotBlank
+	@NotNull
 	@Column(name="goal_saved")
 	private double saved;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	@JsonBackReference
+	//@JsonBackReference
+	@JsonIdentityReference(alwaysAsId = true)
 	private user user;
 	
 	public goal() {
 		
 	}
 	
-	
-	
 
-	public goal(int id, @NotBlank String name, @NotBlank String description, @NotBlank String image,
-			@NotBlank Date date, @NotBlank double amount, @NotBlank double saved,
-			user user) {
+	public goal(int id,  String name,  String description,  String image,
+			 LocalDate date,  double amount, double saved,
+			com.skillstorm.demo.models.user user) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -77,8 +84,6 @@ public class goal {
 		this.saved = saved;
 		this.user = user;
 	}
-	
-	
 
 
 
@@ -86,24 +91,12 @@ public class goal {
 
 
 
-	
 
 
 
 
 
 
-
-	public goal(@NotBlank String name, @NotBlank String description, @NotBlank String image, @NotBlank double amount,
-			@NotBlank double saved, com.skillstorm.demo.models.user user) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.image = image;
-		this.amount = amount;
-		this.saved = saved;
-		this.user = user;
-	}
 
 
 
@@ -140,11 +133,11 @@ public class goal {
 		this.image = image;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

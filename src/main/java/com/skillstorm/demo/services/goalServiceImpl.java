@@ -1,7 +1,7 @@
 package com.skillstorm.demo.services;
 
-import java.util.List;
-import java.util.Set;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,24 @@ public class goalServiceImpl  implements goalService {
 	public goal findById(int id) {
 		return repository.findById(id).get();
 	}
+
+	@Override
+	public void deleteById(int id) {
+		repository.deleteById(id);
+		
+	}
+
+	@Override
+	public goal save(goal goal) {
+		return repository.save(goal);
+	}
+
+
+
+
+
+
+	
 
 
 

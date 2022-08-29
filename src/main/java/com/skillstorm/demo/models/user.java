@@ -11,10 +11,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "users")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "username")
+
 public class user {
 	
 	@Id
@@ -32,7 +36,7 @@ public class user {
 	
 	
 	@OneToMany (mappedBy="user")
-	@JsonManagedReference
+	//@JsonManagedReference
 	private List<goal> goal;
 	
 	
