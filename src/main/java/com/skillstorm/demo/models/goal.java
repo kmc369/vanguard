@@ -1,6 +1,6 @@
 package com.skillstorm.demo.models;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -33,7 +33,7 @@ public class goal {
 	private int id;
 	
 
-	@NotBlank //validations 
+	@NotBlank
 	@Column(name="goal_name")
 	private String name;
 	
@@ -71,9 +71,7 @@ public class goal {
 	}
 	
 
-	public goal(int id,  String name,  String description,  String image,
-			 LocalDate date,  double amount, double saved,
-			com.skillstorm.demo.models.user user) {
+	public goal(int id,  String name,  String description,  String image, LocalDate date,  double amount, double saved, com.skillstorm.demo.models.user user) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -93,12 +91,16 @@ public class goal {
 
 
 
-
-
-
-
-
-
+	public goal( String name, String description,  String image,  LocalDate date, double amount, double saved, com.skillstorm.demo.models.user user) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.image = image;
+		this.date = date;
+		this.amount = amount;
+		this.saved = saved;
+		this.user = user;
+	}
 
 
 	public int getId() {
