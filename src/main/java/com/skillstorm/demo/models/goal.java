@@ -74,6 +74,33 @@ public class goal {
 		this.saved = saved;
 		this.user = user;
 	}
+	
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	public goal(@NotBlank String name, @NotBlank String description, @NotBlank String image, @NotBlank double amount,
+			@NotBlank double saved, com.skillstorm.demo.models.user user) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.image = image;
+		this.amount = amount;
+		this.saved = saved;
+		this.user = user;
+	}
 
 
 
