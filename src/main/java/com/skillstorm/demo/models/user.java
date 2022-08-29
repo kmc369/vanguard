@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "users")
 public class user {
@@ -30,6 +32,7 @@ public class user {
 	
 	
 	@OneToMany (mappedBy="user")
+	@JsonManagedReference
 	private List<goal> goal;
 	
 	

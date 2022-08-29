@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 //annotations for hibernate
 @Entity
 @Table(name = "goals")
@@ -52,6 +54,7 @@ public class goal {
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
+	@JsonBackReference
 	private user user;
 	
 	public goal() {
