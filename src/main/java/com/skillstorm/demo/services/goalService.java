@@ -10,5 +10,6 @@ public interface goalService {
 	public goal findById(int id);
 	public void deleteById(int id);
 	public goal save(goal goal);
+	public goal update(goal goal);
 
 }

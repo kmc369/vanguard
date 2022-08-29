@@ -31,6 +31,12 @@ public class goalServiceImpl  implements goalService {
 		return repository.save(goal);
 	}
 
+	@Override
+	public goal update(goal goal) {
+		return repository.save(goal);
+	}
+
+
 
 
 
