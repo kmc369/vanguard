@@ -1,11 +1,6 @@
 package com.skillstorm.demo.controllers;
-
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.skillstorm.demo.models.goal;
 import com.skillstorm.demo.services.goalServiceImpl;
@@ -30,6 +26,22 @@ public class goalController {
 	public goal findById(@PathVariable int id) {
 		return service.findById(id);
 	} 
+	
+	@GetMapping("/allGoals")
+	public List<goal> findAll(){
+	
+		return service.findAll();
+		
+	}
+	
+
+	@GetMapping("/allGoals/{id}")
+	public List<goal> findByUserId (@PathVariable int id){
+		
+	  return service.findByUserId(id);
+	}
+	
+
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {

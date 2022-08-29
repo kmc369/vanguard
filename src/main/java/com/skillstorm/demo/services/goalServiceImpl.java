@@ -1,7 +1,5 @@
 package com.skillstorm.demo.services;
-
-
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +32,19 @@ public class goalServiceImpl  implements goalService {
 	@Override
 	public goal update(goal goal) {
 		return repository.save(goal);
+	}
+
+	@Override
+	public List<goal> findAll() {
+		 List<goal> goals = (List<goal>) repository.findAll();
+		 return goals;
+	}
+
+	@Override
+	public List<goal> findByUserId(int id) {
+	
+		List<goal> goals = repository.findByUserId(id);
+		return goals;
 	}
 
 
