@@ -4,6 +4,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.skillstorm.demo.services.goalServiceImpl;
 
 @RestController
 @RequestMapping("/goals")
+@CrossOrigin(origins ="*")
 public class goalController {
 
 	@Autowired
@@ -37,12 +39,7 @@ public class goalController {
 	}
 	
 
-	@GetMapping("/allGoals/{id}")
-	public List<goal> findByUserId (@PathVariable int id){
-		
-	  return service.findByUserId(id);
-	}
-	
+
 
 	
 	@DeleteMapping("/{id}")

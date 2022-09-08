@@ -62,18 +62,18 @@ public class goal {
 	@Column(name="goal_saved")
 	private double saved;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="user_id")
-	//@JsonBackReference
+	//@JsonBackReferences
 	@JsonIdentityReference(alwaysAsId = true)
 	private user user;
-	
+	*/
 	public goal() {
 		
 	}
-	
 
-	public goal(int id,  String name,  String description,  String image, LocalDate date,  double amount, double saved, com.skillstorm.demo.models.user user) {
+	public goal(int id, @NotBlank String name, @NotBlank String description, @NotBlank String image,
+			@Future LocalDate date, @NotNull double amount, @NotNull double saved) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -82,28 +82,7 @@ public class goal {
 		this.date = date;
 		this.amount = amount;
 		this.saved = saved;
-		this.user = user;
 	}
-
-
-
-
-
-
-
-
-
-	public goal( String name, String description,  String image,  LocalDate date, double amount, double saved, com.skillstorm.demo.models.user user) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.image = image;
-		this.date = date;
-		this.amount = amount;
-		this.saved = saved;
-		this.user = user;
-	}
-
 
 	public int getId() {
 		return id;
@@ -161,30 +140,16 @@ public class goal {
 		this.saved = saved;
 	}
 
-	public user getUser() {
-		return user;
-	}
-
-	public void setUser(user user) {
-		this.user = user;
-	}
-
-
-
-
 	@Override
 	public String toString() {
 		return "goal [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image + ", date="
-				+ date + ", amount=" + amount + ", saved=" + saved + ", user=" + user + "]";
+				+ date + ", amount=" + amount + ", saved=" + saved + "]";
 	}
 	
 	
 	
+	}
 	
-	
-	
-}	
 	
 
-
-	
+		
