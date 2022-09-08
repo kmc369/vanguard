@@ -40,12 +40,7 @@ public class goalServiceImpl  implements goalService {
 		 return goals;
 	}
 
-	@Override
-	public List<goal> findByUserId(int id) {
-	
-		List<goal> goals = repository.findByUserId(id);
-		return goals;
-	}
+
 
 
 

@@ -14,6 +14,6 @@ public interface goalService {
 	public void deleteById(int id);
 	public goal save(goal goal);
 	public goal update(goal goal);
-	public List<goal> findByUserId(int id);
+	
 
 }

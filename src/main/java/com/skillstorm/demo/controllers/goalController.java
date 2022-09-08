@@ -37,12 +37,7 @@ public class goalController {
 	}
 	
 
-	@GetMapping("/allGoals/{id}")
-	public List<goal> findByUserId (@PathVariable int id){
-		
-	  return service.findByUserId(id);
-	}
-	
+
 
 	
 	@DeleteMapping("/{id}")
